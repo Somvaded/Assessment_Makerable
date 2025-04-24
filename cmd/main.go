@@ -11,6 +11,7 @@ import (
 
 func main() {
 	conn := config.LoadConfig()
+	gin.SetMode(gin.ReleaseMode)
 	r := gin.Default();
 	db := db.ConnectDatabase(conn.DBUrl);
 	routes.RegisterRoutes(r,db)
